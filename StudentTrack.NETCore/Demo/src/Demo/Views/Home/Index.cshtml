@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model Demo.Models.TodoItemIndexModel
+
+
+<table>
+    <tr>
+        <td><b>@Html.LabelFor(model => model.TemplateItem.Name, htmlAttributes: new {@class = "control-label col-md-2"})</b></td>
+        <td><b>@Html.LabelFor(model => model.TemplateItem.IsDone, htmlAttributes: new {@class = "control-label col-md-2"})</b></td>
+        <td><b>@Html.LabelFor(model => model.TemplateItem.Category, htmlAttributes: new {@class = "control-label col-md-2"})</b></td>
+    </tr>
+    @foreach (Demo.Models.TodoItem item in Model.TodoItems)
+    {
+        <tr>
+            <td>@item.Name@*Html.textfor(model => model.TemplateItem.Name)*@</td>
+            <td>@Html.DisplayFor(model => model.TemplateItem.IsDone)</td>
+            <td>@item.Category</td>           
+        </tr>
+    }
+</table>
+<br />
+@Html.ActionLink("Add", "Add", "Home", new { @class = "btn btn-primary", @style = "color:white; width:100%", @role = "button" })
