@@ -1,0 +1,65 @@
+﻿@using StudentTrackASP.Net.Models
+@model StudentTrackASP.Net.Models.WeerModel
+
+@{
+    ViewBag.Title = "AddWeer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="ajax-result">AddWeer</h2>
+<div id="ajax-loading">
+    <div>
+        <div>Ik ben druk bezig!</div>
+    </div>
+</div>
+
+
+@Ajax.ActionLink("Klik mij", "AddWeer", "JP", new AjaxOptions())
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    LoadingElementId = "ajax-loading",
+    UpdateTargetId = "ajax-result"
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>WeerModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MinTemp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MinTemp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MinTemp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaxTemp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaxTemp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaxTemp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

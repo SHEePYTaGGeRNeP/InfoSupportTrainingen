@@ -1,0 +1,22 @@
+﻿@model StudentTrackASP.Net.Models.WeerModel
+@{
+    ViewBag.Title = "Hallo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ajax-loading">
+    <div>
+        <div>Ik ben druk bezig!</div>
+    </div>
+</div>
+<div id="ajax-result">
+
+</div>
+
+
+Actuele weersinformatie voor @Model.City:
+    <ul>
+        <li>minimaal temperatuur: @Model.MinTemp</li>
+        <li>maximale temperatuur: @Model.MaxTemp</li>
+    </ul>
+
