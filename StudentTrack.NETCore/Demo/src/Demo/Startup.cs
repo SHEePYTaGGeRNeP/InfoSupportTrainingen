@@ -1,8 +1,9 @@
-﻿using Demo.Utils;
+﻿using Demo.DataAccess;
+using Demo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-
+using Microsoft.EntityFrameworkCore;
 namespace Demo
 {
     public class Startup
@@ -18,6 +19,11 @@ namespace Demo
             }).AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+            var connectionString = @"Server=.\SQLEXPRESS; Database=productdb; Integrated Security = true;";
+            services.AddDbContext<ProductContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
             });
         }
 
