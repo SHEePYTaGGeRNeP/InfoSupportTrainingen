@@ -13,7 +13,7 @@ namespace Demo.Utils
                 Message = context.Exception.Message,
                 StackTrace = context.Exception.StackTrace
             };
-
+            
             context.Result = new ContentResult()
             {
                 StatusCode = 500,

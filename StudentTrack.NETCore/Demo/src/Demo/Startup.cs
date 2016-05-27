@@ -26,7 +26,7 @@ namespace Demo
         {
             app.UseStaticFiles();
             app.UseMvc();
-            app.UseWelcomePage("/Index.html");
+            app.UseWelcomePage("/index.html");
             app.UseStatusCodePages();
         }
     }

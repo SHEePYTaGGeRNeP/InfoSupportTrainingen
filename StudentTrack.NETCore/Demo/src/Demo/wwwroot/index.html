@@ -3,24 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <title>Hey supp.</title>
+    <link href="css/default.css" rel="stylesheet">
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/scripts.js"></script>
 </head>
+
 <body ng-app="demoApp" ng-controller="productCtrl as product">
 
-    <button ng-click="product.getProducten()">Haal producten op</button>
-
+    <button ng-click="product.getProducten();">Haal producten op</button>
+    <br/>
     <table>
         <tr>
             <th>ID</th>
             <th>Product</th>
             <th>Prijs</th>
         </tr>
-        <tr ng-repeat="item in product.products"
-            ng-click="item.Price = item.Price + 5">
-            <td>{{item.Id}}</td>
-            <td>{{item.Product}}</td>
-            <td>{{item.Price}}</td>
+        <tr ng-repeat="item in product.producten"
+            ng-click="item.price = item.price + 5"
+			ng-class="{ 'duur': item.price > 40 }">
+            <td>{{item.id}}</td>
+            <td>{{item.product}}</td>
+            <td>{{item.price}}</td>
         </tr>
     </table>
 
