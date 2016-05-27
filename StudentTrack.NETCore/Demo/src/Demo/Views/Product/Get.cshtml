@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<Demo.Models.ProductModel>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Hey supp.</title>
     <script src="/scripts/angular.js"></script>
-    <script src="/scripts/scripts.js"></script>
+    <script src ="/scripts/scripts.js"></script>
 </head>
 <body ng-app="demoApp" ng-controller="productCtrl as product">
 
-    <button ng-click="product.getProducten()">Haal producten op</button>
+<button ng-click="product.getProduction">Haal producten op</button>
 
-    <table>
+<table>
         <tr>
             <th>ID</th>
             <th>Product</th>
@@ -18,9 +20,9 @@
         </tr>
         <tr ng-repeat="item in product.products"
             ng-click="item.Price = item.Price + 5">
-            <td>{{item.Id}}</td>
-            <td>{{item.Product}}</td>
-            <td>{{item.Price}}</td>
+                <td>{{item.Id}}</td>
+                <td>{{item.Product}}</td>
+                <td>{{item.Price}}</td>
         </tr>
     </table>
 
